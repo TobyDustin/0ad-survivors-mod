@@ -1,0 +1,9 @@
+{
+  "name": "refugeemod",
+  "version": "1.0.0",
+  "label": "Refugee Mod",
+  "url": "",
+  "description": "When an allied player dies, their units will be transferred to their closest ally instead of Gaia, ensuring their forces live on.",
+  "dependencies": [],
+  "type": "simulation"
+}
