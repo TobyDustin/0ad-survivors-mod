@@ -15,3 +15,16 @@ The war is no longer just about conquest—it is about **strategy, loyalty, and 
 The fate of the battlefield is no longer determined by sheer force alone. It is determined by those who understand that **even in defeat, there is strength**.  
 
 Now tell me, Commander—who stands with you? And who will you let rise against you?
+
+
+## Installation guide
+Download the refugees.zip file from [this page](https://github.com/TobyDustin/0ad-refugees-mod/releases/tag/v1.0.0)
+
+Drag and drop the zip file into the location for your OS:
+
+**On Windows:** `C:\Users\{name_of_user}\Documents\My Games\0ad\mods\`
+
+**On Linux:** `~/.local/share/0ad/mods/`
+
+**On Mac:** `~/Applications/0 A.D..app/Contents/Resources/data/mods/`
+
