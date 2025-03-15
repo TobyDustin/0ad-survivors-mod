@@ -28,3 +28,8 @@ Drag and drop the zip file into the location for your OS:
 
 **On Mac:** `~/Applications/0 A.D..app/Contents/Resources/data/mods/`
 
+Unzip the folder
+
+Start 0.A.D
+
+Select the mod in the "mod selection" screen
