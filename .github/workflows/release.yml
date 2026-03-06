@@ -19,9 +19,9 @@ jobs:
       - name: Create zip from src
         run: |
           cd src
-          zip -r ../release.zip .
+          zip -r ../survivors-mod.zip .
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: release.zip
+          files: survivors-mod.zip
