@@ -462,7 +462,9 @@ Player.prototype.SetState = function (newState, message) {
     ).GetAllies();
 
     let allyId = 0;
-    if (allies) {
+    const refugeesEnabled = !InitAttributes || !InitAttributes.settings ||
+      InitAttributes.settings.Survivors !== false;
+    if (refugeesEnabled && allies) {
       allyId =
         allies.find((ally) => {
           let alliedPlayer = QueryPlayerIDInterface(ally);
