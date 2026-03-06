@@ -16,9 +16,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Create zip archive
+      - name: Create zip from src
         run: |
-          zip -r release.zip . -x "*.git*" ".github/*"
+          cd src
+          zip -r ../release.zip .
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
