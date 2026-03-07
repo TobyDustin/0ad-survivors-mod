@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   release:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout repository
@@ -25,3 +25,14 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: survivors-mod.zip
+
+      - name: Upload to mod.io
+        uses: nickelc/upload-to-modio@v3.0.0
+        with:
+          token: ${{ secrets.MODIO_TOKEN }}
+          game: 16
+          mod: 4791538
+          path: survivors-mod.zip
+          version: ${{ github.ref_name }}
+          changelog: GitHub release ${{ github.ref_name }}
+          active: true
