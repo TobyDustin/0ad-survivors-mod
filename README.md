@@ -1,5 +1,5 @@
 # 0ad-survivors-mod
-![header](https://i.imgur.com/Ua8QeC7.jpeg)
+<img width="1152" height="768" alt="survivors" src="https://github.com/user-attachments/assets/f9141cba-1d59-4fe9-a7a8-2bdccb39e9df" />
 
 *"Commander, heed my words! The tides of battle are ever-changing, and victory is never assured. In war, defeat does not mean destruction—it means opportunity."*  
 
