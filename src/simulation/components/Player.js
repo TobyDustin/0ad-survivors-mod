@@ -70,6 +70,7 @@ Player.prototype.Init = function () {
     buy: clone(this.template.BarterMultiplier.Buy),
     sell: clone(this.template.BarterMultiplier.Sell),
   };
+  this.tributesReceivedFrom = {}; // { [fromPlayerId]: totalResourcesReceived }
 
   // Initial resources.
   let resCodes = Resources.GetCodes();
@@ -465,11 +466,23 @@ Player.prototype.SetState = function (newState, message) {
     const refugeesEnabled = !InitAttributes || !InitAttributes.settings ||
       InitAttributes.settings.Survivors !== false;
     if (refugeesEnabled && allies) {
-      allyId =
-        allies.find((ally) => {
-          let alliedPlayer = QueryPlayerIDInterface(ally);
-          return ally !== this.playerID && !alliedPlayer.IsDefeated();
-        }) || 0;
+      const activeAllies = allies.filter((ally) => {
+        let alliedPlayer = QueryPlayerIDInterface(ally);
+        return ally !== this.playerID && !alliedPlayer.IsDefeated();
+      });
+
+      if (activeAllies.length > 0) {
+        let topDonor = null;
+        let topAmount = 0;
+        for (const ally of activeAllies) {
+          const sent = this.tributesReceivedFrom[ally] || 0;
+          if (sent > topAmount) {
+            topAmount = sent;
+            topDonor = ally;
+          }
+        }
+        allyId = topDonor !== null ? topDonor : activeAllies[0];
+      }
     }
 
     // The ownership change is done in two steps so that entities don't hit idle
@@ -509,6 +522,12 @@ Player.prototype.SetState = function (newState, message) {
     allies: [this.playerID],
     message: message,
   });
+};
+
+Player.prototype.OnGlobalTributeExchanged = function (msg) {
+  if (msg.to !== this.playerID) return;
+  const total = Object.values(msg.amounts).reduce((s, v) => s + v, 0);
+  this.tributesReceivedFrom[msg.from] = (this.tributesReceivedFrom[msg.from] || 0) + total;
 };
 
 Player.prototype.GetFormations = function () {
