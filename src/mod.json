@@ -1,9 +1,9 @@
 {
   "name": "survivorsmod",
-  "version": "1.0.0",
+  "version": "1.3.5",
   "label": "Survivors Mod",
   "url": "",
   "description": "When an allied player dies, their units will be transferred to their closest ally instead of Gaia, ensuring their forces live on.",
-  "dependencies": [],
+  "dependencies": ["0ad=0.28.0"],
   "type": "simulation"
 }
